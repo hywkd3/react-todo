@@ -6,19 +6,14 @@ import CreateTodo from './CreateTodo';
 import { createGlobalStyle } from 'styled-components';
 
 function App() {
+
+  // 인풋 
   const [inputs, setInputs] = useState({
     work: '',
     status: false
   });
-  const { work, status } = inputs;
-  const onChange = e => {
-    const { name, value } = e.target;
-    setInputs({
-      ...inputs,
-      [name]: value
-    });
-  };
 
+  const { work, status } = inputs;
   // todo 목록
   const [todos, setTodos] = useState([
     {
@@ -62,6 +57,15 @@ function App() {
     }
   };
 
+  // 인풋 입력 상태 변경
+  const onChange = e => {
+    const { name, value } = e.target;
+    setInputs({
+      ...inputs,
+      [name]: value
+    });
+  };
+
   // todo 상태 변경
   const onToggle = id => {
     setTodos(
@@ -70,7 +74,6 @@ function App() {
       )
     );
   };
-
 
   // todo 제거
   const onRemove = id => {
